@@ -7,3 +7,5 @@ def salvar_aluno(nome, telefone, data_nascimento):
 
     cursor.execute('INSERT INTO alunos(nome, telefone, data_nascimento) VALUES(?, ?, ?)',
                    (nome, telefone, data_nascimento))    
+    
+    conn.commit()
