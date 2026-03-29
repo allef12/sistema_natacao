@@ -9,3 +9,5 @@ def salvar_aluno(nome, telefone, data_nascimento):
                    (nome, telefone, data_nascimento))    
     
     conn.commit()
+
+    conn.close()
