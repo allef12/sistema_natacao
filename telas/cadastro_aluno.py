@@ -14,3 +14,6 @@ def salvar_aluno(nome, telefone, data_nascimento):
 
 def abrir_cadastro():
     
+    tela = tk.Toplevel()    
+    tela.title('Cadastro do Aluno')
+    tela.geometry('400x300')
