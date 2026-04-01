@@ -22,3 +22,13 @@ def abrir_cadastro():
 
     entrada_nome = tk.Entry(tela)
     entrada_nome.pack()
+
+    tk.Label(tela, text='Telefone').pack(pady=10)
+
+    entrada_tel = tk.Entry(tela)
+    entrada_tel.pack()
+
+    tk.Label(tela, text='Data de nascimento').pack(pady=10)
+
+    entrada_nasc = tk.Entry(tela)
+    entrada_nasc.pack()
