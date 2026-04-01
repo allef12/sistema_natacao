@@ -17,3 +17,5 @@ def abrir_cadastro():
     tela = tk.Toplevel()    
     tela.title('Cadastro do Aluno')
     tela.geometry('400x300')
+
+    tk.Label(tela, text='Nome do Aluno').pack(pady=10)
