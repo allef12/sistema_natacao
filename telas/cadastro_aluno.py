@@ -38,3 +38,8 @@ def abrir_cadastro():
         nome = entrada_nome.get()
         telefone = entrada_tel.get()
         data_nascimento = entrada_nasc.get()
+
+        if nome == "" or telefone == "" or data_nascimento == "":
+            messagebox.showwarning('Aviso','Preencha todos os campos')
+
+            return
