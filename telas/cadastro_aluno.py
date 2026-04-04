@@ -35,3 +35,6 @@ def abrir_cadastro():
 
     def clicar_salvar():
 
+        nome = entrada_nome.get()
+        telefone = entrada_tel.get()
+        data_nascimento = entrada_nasc.get()
