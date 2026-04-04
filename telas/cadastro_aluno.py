@@ -32,3 +32,6 @@ def abrir_cadastro():
 
     entrada_nasc = tk.Entry(tela)
     entrada_nasc.pack()
+
+    def clicar_salvar():
+
