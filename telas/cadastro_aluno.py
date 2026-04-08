@@ -48,3 +48,7 @@ def abrir_cadastro():
         salvar_aluno(nome, telefone, data_nascimento)
 
         messagebox.showinfo('Sucesso', 'Aluno cadastrado com sucesso!')
+
+        entrada_nome.delete(0, tk.END)
+        entrada_tel.delete(0, tk.END)
+        entrada_nasc.delete(0, tk.END)
