@@ -47,3 +47,4 @@ def abrir_cadastro():
 
         salvar_aluno(nome, telefone, data_nascimento)
 
+        messagebox.showinfo('Sucesso', 'Aluno cadastrado com sucesso!')
