@@ -44,3 +44,6 @@ def abrir_cadastro():
             messagebox.showwarning('Aviso','Preencha todos os campos')
 
             return
+
+        salvar_aluno(nome, telefone, data_nascimento)
+
