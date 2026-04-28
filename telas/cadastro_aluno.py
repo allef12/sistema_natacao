@@ -54,3 +54,8 @@ def abrir_cadastro():
         entrada_nasc.delete(0, tk.END)
 
         entrada_nome.focus_set()
+
+    
+
+    tk.Button(tela, text='Salvar', command= clicar_salvar).pack(pady=10)
+
