@@ -52,3 +52,5 @@ def abrir_cadastro():
         entrada_nome.delete(0, tk.END)
         entrada_tel.delete(0, tk.END)
         entrada_nasc.delete(0, tk.END)
+
+        entrada_nome.focus_set()
