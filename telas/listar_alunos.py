@@ -15,3 +15,7 @@ def abrir_lista():
 
     alunos = cursor.fetchall()
 
+    for aluno in alunos:
+        texto = f"{aluno.nome} - {aluno.telefone} - {aluno.data_nascimento}"
+
+        tk.Label(tela,text= texto).pack()
