@@ -19,3 +19,7 @@ def abrir_lista():
         texto = f"{aluno.nome} - {aluno.telefone} - {aluno.data_nascimento}"
 
         tk.Label(tela,text= texto).pack()
+
+    conn.close()
+
+
