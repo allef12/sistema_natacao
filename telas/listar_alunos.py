@@ -11,3 +11,4 @@ def abrir_lista():
     conn = conectar()
     cursor = conn.cursor()
 
+    cursor.execute('SELECT nome, telefone, data_nascimento FROM alunos')
