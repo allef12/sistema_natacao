@@ -14,3 +14,6 @@ def abrir_pagamentos():
     tela.geometry("400x400")
 
     conn = conectar()
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT id, nome FROM alunos")
