@@ -13,3 +13,4 @@ def abrir_pagamentos():
     tela.title("Pagamentos")
     tela.geometry("400x400")
 
+    conn = conectar()
