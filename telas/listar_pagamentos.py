@@ -13,3 +13,5 @@ def abrir_lista_pagamentos():
     meses = ["Janeiro", "Fevereiro", "Março", "Abril",
             "Maio", "Junho", "Julho", "Agosto",
             "Setembro", "Outubro", "Novembro", "Dezembro"]
+
+    tk.Label(tela, text="Selecione o mês").pack(pady=10)
