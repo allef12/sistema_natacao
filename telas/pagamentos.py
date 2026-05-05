@@ -27,3 +27,4 @@ def abrir_pagamentos():
     mapa_alunos = {}
 
     for aluno in dados:
+        lista_alunos.append(aluno.nome)
