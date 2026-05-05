@@ -17,3 +17,6 @@ def abrir_pagamentos():
     cursor = conn.cursor()
 
     cursor.execute("SELECT id, nome FROM alunos")
+
+    dados = cursor.fetchall()
+
