@@ -21,3 +21,6 @@ def abrir_pagamentos():
     dados = cursor.fetchall()
 
     conn.close()
+
+    lista_alunos = []
+
