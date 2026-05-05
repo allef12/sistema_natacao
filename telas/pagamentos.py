@@ -28,3 +28,4 @@ def abrir_pagamentos():
 
     for aluno in dados:
         lista_alunos.append(aluno.nome)
+        mapa_alunos[aluno.nome] = aluno.id
