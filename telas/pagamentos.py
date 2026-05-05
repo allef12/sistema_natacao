@@ -26,3 +26,4 @@ def abrir_pagamentos():
 
     mapa_alunos = {}
 
+    for aluno in dados:
