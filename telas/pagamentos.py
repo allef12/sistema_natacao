@@ -24,3 +24,5 @@ def abrir_pagamentos():
 
     lista_alunos = []
 
+    mapa_alunos = {}
+
