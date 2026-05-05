@@ -20,3 +20,4 @@ def abrir_pagamentos():
 
     dados = cursor.fetchall()
 
+    conn.close()
