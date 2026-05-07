@@ -34,3 +34,6 @@ def abrir_pagamentos():
     
     combo_nome = ttk.Combobox(tela, values=lista_alunos, state="readonly")
     combo_nome.pack()
+    
+    meses = ['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro', 'novembro','dezembro']
+    
