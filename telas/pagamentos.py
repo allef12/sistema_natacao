@@ -37,3 +37,8 @@ def abrir_pagamentos():
     
     meses = ['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro', 'novembro','dezembro']
     
+    tk.Label(tela, text="Meses").pack(pady=5)
+    
+    combo_mes = ttk.Combobox(tela, values=meses, state="readonly")
+    combo_mes.pack()
+    
