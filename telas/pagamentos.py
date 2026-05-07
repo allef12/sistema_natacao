@@ -29,3 +29,8 @@ def abrir_pagamentos():
     for aluno in dados:
         lista_alunos.append(aluno.nome)
         mapa_alunos[aluno.nome] = aluno.id
+    
+    tk.Label(tela,text="Nome").pack(pady=5)
+    
+    combo_nome = ttk.Combobox(tela, values=lista_alunos, state="readonly")
+    combo_nome.pack()
