@@ -42,3 +42,12 @@ def abrir_pagamentos():
     combo_mes = ttk.Combobox(tela, values=meses, state="readonly")
     combo_mes.pack()
     
+    tk.Label(tela, text="Valor").pack()
+    
+    entrada_valor = tk.Entry(tela)
+    entrada_valor.pack()
+    
+    tk.Label(tela, text="status").pack()
+    
+    entrada_status = tk.Entry(tela)
+    entrada_status.pack()
