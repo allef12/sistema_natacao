@@ -53,3 +53,8 @@ def abrir_pagamentos():
     entrada_status.pack()
     
     def salvar_pagamento():
+        nome = combo_nome.get()
+        mes = combo_mes.get()
+        valor = entrada_valor.get()
+        status = entrada_status.get()
+        
