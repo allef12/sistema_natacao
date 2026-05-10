@@ -51,3 +51,5 @@ def abrir_pagamentos():
     
     entrada_status = tk.Entry(tela)
     entrada_status.pack()
+    
+    def salvar_pagamento():
