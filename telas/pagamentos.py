@@ -58,3 +58,7 @@ def abrir_pagamentos():
         valor = entrada_valor.get()
         status = entrada_status.get()
         
+        if nome =="" or mes =="" or valor =="" or status =="":
+            messagebox.showwarning("ERRO","Preencha todos os campos")
+            
+            return
