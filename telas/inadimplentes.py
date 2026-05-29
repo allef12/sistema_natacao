@@ -7,3 +7,10 @@ from tkinter import ttk
 from database import conectar
 
 
+def abrir_inadimplentes():
+
+    # cria nova janela
+    tela = tk.Toplevel()
+    tela.title("Inadimplentes")
+    tela.geometry("400x400")
+
