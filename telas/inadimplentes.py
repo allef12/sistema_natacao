@@ -14,3 +14,9 @@ def abrir_inadimplentes():
     tela.title("Inadimplentes")
     tela.geometry("400x400")
 
+    # lista de meses
+    meses = [
+        "Janeiro", "Fevereiro", "Março", "Abril",
+        "Maio", "Junho", "Julho", "Agosto",
+        "Setembro", "Outubro", "Novembro", "Dezembro"
+    ]
