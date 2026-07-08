@@ -29,5 +29,16 @@ cursor = conn.cursor()
 cursor.execute("SELECT nome, telefone, data_nascimento FROM alunos")
 
 dados = cursor.fetchall()
+    #-----
+    #listas
+    #-----
+
+    lista_nome = []
+
+    mapa_alunos = {}
+
+    for aluno in dados:
+        lista_nome.append(aluno.nome)
+        mapa_alunos[aluno.nome] = aluno.id
 
 conn.close()
