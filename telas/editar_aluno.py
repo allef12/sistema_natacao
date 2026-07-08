@@ -18,3 +18,16 @@ from database import conectar
 tela = tk.Toplevel()
 tela.title("Editar aluno")
 tela.geometry("350x400")
+
+#-----
+#conectar ao banco
+#-----
+
+conn = conectar()
+cursor = conn.cursor()
+
+cursor.execute("SELECT nome, telefone, data_nascimento FROM alunos")
+
+dados = cursor.fetchall()
+
+conn.close()
