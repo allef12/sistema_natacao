@@ -1,3 +1,4 @@
+
 import tkinter as tk
 
 from tkinter import ttk
@@ -5,6 +6,7 @@ from tkinter import ttk
 from database import conectar
 
 from tkinter import messagebox
+
 
 
 def abrir_pagamentos():
@@ -36,7 +38,8 @@ def abrir_pagamentos():
     combo_nome.pack()
     
     meses = ['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro', 'novembro','dezembro']
-    
+    status = ["Pago"]
+
     tk.Label(tela, text="Meses").pack(pady=5)
     
     combo_mes = ttk.Combobox(tela, values=meses, state="readonly")
@@ -49,16 +52,48 @@ def abrir_pagamentos():
     
     tk.Label(tela, text="status").pack()
     
-    entrada_status = tk.Entry(tela)
-    entrada_status.pack()
+    combo_status = ttk.Combobox(tela, values=status, state="readonly")
+    combo_status.pack()
     
     def salvar_pagamento():
         nome = combo_nome.get()
         mes = combo_mes.get()
         valor = entrada_valor.get()
-        status = entrada_status.get()
+        status = combo_status.get()
         
         if nome =="" or mes =="" or valor =="" or status =="":
             messagebox.showwarning("ERRO","Preencha todos os campos")
             
             return
+
+        aluno_id = mapa_alunos[nome]
+        
+        conn = conectar()
+        cursor = conn.cursor()
+        
+        cursor.execute("INSERT INTO pagamentos (aluno_id,mes,valor,status)VALUES(?,?,?,?)",
+                       (aluno_id,mes,valor,status))
+        
+        conn.commit()
+
+        conn.close()
+        
+        messagebox.showinfo("Sucesso","Pagamento salvo com sucesso")
+
+    botao = tk.Button(tela, text="Salvar pagamento", command=salvar_pagamento)
+    botao.pack(pady=10)
+        
+        
+        
+        
+        
+
+   
+        
+        
+     
+
+
+
+
+

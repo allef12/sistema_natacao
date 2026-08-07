@@ -1,3 +1,5 @@
+
+
 import tkinter as tk
 
 from database import conectar
@@ -5,7 +7,7 @@ from database import conectar
 def abrir_lista():
    
     tela = tk.Toplevel()
-    tela.title("lista")
+    tela.title("lista de alunos")
     tela.geometry("400x300")
 
     conn = conectar()
@@ -21,5 +23,12 @@ def abrir_lista():
         tk.Label(tela,text= texto).pack()
 
     conn.close()
+
+
+
+
+
+
+
 
 
