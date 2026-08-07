@@ -96,6 +96,13 @@ def abrir_editar_alunos():
 
         conn.close()
 
+    #LIMPA OS CAMPOS
+
+    entrada_nome.delete(0,tk.END)
+    entrada_tel.delete(0,tk.END)
+    entrada_nascimento.delete(0,tk.END)
+
+    
 
 
    
