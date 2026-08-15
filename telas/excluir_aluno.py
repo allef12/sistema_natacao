@@ -18,3 +18,13 @@ def abrir_excluir_aluno():
     tela.title("Excluir Aluno")
     tela.geometry("400x250")
 
+    # conecta ao banco
+    conn = conectar()
+    cursor = conn.cursor()
+
+    # busca todos os alunos
+    cursor.execute("""
+        SELECT id, nome
+        FROM alunos
+    """)
+
