@@ -74,30 +74,6 @@ def abrir_cadastro():
     tela,
     text='Salvar',
     command=clicar_salvar
-    ).pack(pady=10)"""
-
-
-
-import tkinter as tk
-from tkinter import messagebox
-from database import conectar
-
-def salvar_aluno(nome, telefone, data_nascimento):
-    conn = conectar()
-    cursor = conn.cursor()
-
-    cursor.execute('INSERT INTO alunos(nome, telefone, data_nascimento) VALUES(?, ?, ?)',
-                   (nome, telefone, data_nascimento))    
-    
-    conn.commit()
-
-    conn.close()
-
-def abrir_cadastro():
-    
-    tela = tk.Toplevel()    
-    tela.title('Cadastro do Aluno')
-    tela.geometry('400x300')
 
     tk.Label(tela, text='Nome do Aluno').pack(pady=10)
 
