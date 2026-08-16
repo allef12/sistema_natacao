@@ -10,6 +10,9 @@ from tkinter import messagebox
 # importa conexão com o banco
 from database import conectar
 
+    
+    dados = cursor.fetchall()
+    
 
 def abrir_excluir_aluno():
 
