@@ -9,6 +9,7 @@ from telas.listar_alunos import abrir_lista
 from telas.listar_pagamentos import abrir_lista_pagamentos
 from telas.inadimplentes import abrir_inadimplentes
 from telas.editar_aluno import abrir_editar_alunos
+from telas.excluir_aluno import abrir_excluir_aluno
 
 
 janela = tk.Tk()
@@ -35,6 +36,9 @@ botao5.pack(pady=10)
 
 botao6 = tk.Button(janela, text="Editar aluno",width=20,command=abrir_editar_alunos)
 botao6.pack(pady=10)
+
+botao7 = tk.Button(janela, text="Excluir aluno",width=20,command=abrir_excluir_aluno)
+botao7.pack(pady=10)
 
 
 
