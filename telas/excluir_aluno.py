@@ -11,7 +11,6 @@ from tkinter import messagebox
 from database import conectar
 
     
-    dados = cursor.fetchall()
     
 
 def abrir_excluir_aluno():
