@@ -80,7 +80,7 @@ def abrir_editar_alunos():
     def carregar_dados():
         nome = combo_aluno.get()
 
-        if nome =="":
+        if nome == "":
             messagebox.showwarning("Aviso","Preencha o campo")
         
         aluno_id = mapa_alunos[nome] 
@@ -98,11 +98,79 @@ def abrir_editar_alunos():
 
     #LIMPA OS CAMPOS
 
-    entrada_nome.delete(0,tk.END)
-    entrada_tel.delete(0,tk.END)
-    entrada_nascimento.delete(0,tk.END)
+        entrada_nome.delete(0, tk.END)
+        entrada_tel.delete(0, tk.END)
+        entrada_nascimento.delete(0, tk.END)
+
+    #INSERE OS DADOS NOS CAMPOS
+
+        entrada_nome.insert(0, aluno.nome)
+        entrada_tel.insert(0, aluno.telefone)
+        entrada_nascimento.insert(0, aluno.data_nascimento)
+
+    #----------------------------
+    #SALVAR ALTERAÇÕES
+    #----------------------------
+
+
+    def salvar():
+        nome_selecionado = combo_aluno.get()
+
+        nome = entrada_nome.get()
+        telefone = entrada_tel.get()
+        nascimento = entrada_nascimento.get()
+
+        if nome =="" or telefone == "" or nascimento =="":
+            messagebox.showwarning("Aviso","Preencha todos os campos")
+
+            return
+
+        aluno_id = mapa_alunos[nome_selecionado]
+
+        conn = conectar()
+        cursor = conn.cursor()
+
+        cursor.execute("""
+            UPDATE alunos
+            SET nome = ?,
+                telefone = ?,
+                data_nascimento = ?
+            WHERE id = ?
+        """, (
+            nome,
+            telefone,
+            nascimento,
+            aluno_id
+        ))
+
+        conn.commit()
+
+        conn.close()
+
+        messagebox.showinfo(
+            "Sucesso",
+            "Aluno atualizado com sucesso!"
+        )
+
+    # botão carregar
+    tk.Button(
+        tela,
+        text="Carregar Dados",
+        command=carregar_dados
+    ).pack(pady=10)
+
+    # botão salvar
+    tk.Button(
+        tela,
+        text="Salvar Alterações",
+        command=salvar
+    ).pack()
+
+        
+
 
     
+
 
 
    

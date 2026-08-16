@@ -47,8 +47,10 @@ def abrir_pagamentos():
     
     tk.Label(tela, text="Valor").pack()
     
-    entrada_valor = tk.Entry(tela)
-    entrada_valor.pack()
+    Planos = ['150 R$','300 R$']
+    
+    combo_valor = ttk.Combobox(tela, values=Planos, state="readonly")
+    combo_valor.pack()
     
     tk.Label(tela, text="status").pack()
     
@@ -58,13 +60,18 @@ def abrir_pagamentos():
     def salvar_pagamento():
         nome = combo_nome.get()
         mes = combo_mes.get()
-        valor = entrada_valor.get()
+        valor = combo_valor.get()
         status = combo_status.get()
         
         if nome =="" or mes =="" or valor =="" or status =="":
-            messagebox.showwarning("ERRO","Preencha todos os campos")
+            messagebox.showwarning(
+                "ERRO",
+                "Preencha todos os campos")
             
             return
+        
+        valor = valor.replace("R$","")
+        valor = float(valor)
 
         aluno_id = mapa_alunos[nome]
         

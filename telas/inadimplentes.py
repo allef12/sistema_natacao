@@ -121,7 +121,7 @@ def abrir_inadimplentes():
 
     combo_mes = ttk.Combobox(tela, values=meses, state="readonly")
     combo_mes.pack(pady=5)
-
+    #Área de exibição dos resultados
     frame_resultado = tk.Frame(tela)
     frame_resultado.pack(pady=10)
 

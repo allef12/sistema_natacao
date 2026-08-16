@@ -68,12 +68,21 @@ def abrir_cadastro():
        return
      
      salvar_aluno(nome, telefone, data_nascimento)
+     
+     messagebox.showinfo("Sucesso","Aluno cadastrado com sucesso!")
+     
+     entrada_nome.delete(0, tk.END)
+     entrada_tel.delete(0, tk.END)
+     entrada_nascimento.delete(0, tk.END)
+     
+     entrada_nome.focus_set()
 
 
     tk.Button(
     tela,
     text='Salvar',
     command=clicar_salvar
+    ).pack(pady=10)
 
 
 
