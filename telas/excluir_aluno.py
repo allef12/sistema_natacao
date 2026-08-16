@@ -15,7 +15,7 @@ def abrir_excluir_aluno():
     cursor.execute("""SELECT id, nome FROM alunos""")
     
     dados = cursor.fetchall()
-   
+    
     conn.close()
 
     lista_nomes = []
