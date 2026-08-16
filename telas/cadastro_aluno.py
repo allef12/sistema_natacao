@@ -1,5 +1,4 @@
 #importar biblioteca tkinter para criar interface gráfica
-"""import tkinter as tk
 #importa de do tkinter um módulo que exibe caixas de diálogo
 from tkinter import messagebox
 
