@@ -51,8 +51,8 @@ def abrir_cadastro():
 
     tk.Label(tela, text='data de nascimento').pack()
 
-    nasc = tk.Entry(tela)
-    nasc.pack()
+    entrada_nascimento = tk.Entry(tela)
+    entrada_nascimento.pack()
 #================================================
 # Função do botão salvar
 #================================================
