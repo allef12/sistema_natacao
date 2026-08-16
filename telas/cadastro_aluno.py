@@ -60,7 +60,7 @@ def abrir_cadastro():
     def clicar_salvar():
      nome = entrada_nome.get()
      telefone = entrada_tel.get()
-     data_nascimento = nasc.get()
+     data_nascimento = entrada_nascimento.get()
      
      if nome == "" or telefone == "" or data_nascimento == "":
        messagebox.showwarning("Aviso", "Preencha todos os campos!")
