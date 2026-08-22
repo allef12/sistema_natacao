@@ -49,3 +49,7 @@ def abrir_excluir_aluno():
                         #coloca o foco na janela
           tela.focus_force()
           return
+      
+      
+      aluno_id = mapa_aluno[nome]
+
