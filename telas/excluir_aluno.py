@@ -61,3 +61,22 @@ def abrir_excluir_aluno():
           tela.focus_force()
           return
      
+      try: 
+        conn = conectar()
+        cursor = conn.cursor()
+
+        cursor.execute("""
+                        DELETE FROM alunos
+                        WHERE id = ?""", (aluno_id,)) 
+
+        conn.commit()  
+
+        conn.close()
+        
+        messagebox.showinfo("Sucesso","Aluno excluido com sucesso!")
+        #Depois da exclusão limpa o combobox  
+        combo_aluno.set("")
+        #trazer janela pra frente 
+        tela.lift()
+        #coloca o foco na janela
+        tela.focus_force()
