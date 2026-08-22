@@ -53,3 +53,11 @@ def abrir_excluir_aluno():
       
       aluno_id = mapa_aluno[nome]
 
+      confirmar = messagebox.askyesno("Confirmar exclusão", f"Deseja excluir o aluno\n\n {nome}?")
+      
+      if not confirmar:
+          tela.lift()
+                        #coloca o foco na janela
+          tela.focus_force()
+          return
+     
