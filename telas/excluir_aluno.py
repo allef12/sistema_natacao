@@ -80,3 +80,7 @@ def abrir_excluir_aluno():
         tela.lift()
         #coloca o foco na janela
         tela.focus_force()
+    
+      except Exception as e:
+        messagebox.showerror("Erro",f"Não foi possível excluir o aluno:\n\n{e}")
+    
