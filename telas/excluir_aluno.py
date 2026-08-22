@@ -84,3 +84,6 @@ def abrir_excluir_aluno():
       except Exception as e:
         messagebox.showerror("Erro",f"Não foi possível excluir o aluno:\n\n{e}")
     
+    #Botão de exclusão
+    tk.Button(tela,text="Excluir",command=excluir).pack(pady=10)
+            
