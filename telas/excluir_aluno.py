@@ -39,3 +39,4 @@ def abrir_excluir_aluno():
     combo_aluno = ttk.Combobox(tela,values=lista_alunos, state="readonly")
     combo_aluno.pack()
 
+    def excluir():
