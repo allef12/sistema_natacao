@@ -45,3 +45,7 @@ def abrir_excluir_aluno():
       if nome =="":
           messagebox.showwarning("Aviso","Coloque o nome do aluno")
           
+          tela.lift()
+                        #coloca o foco na janela
+          tela.focus_force()
+          return
