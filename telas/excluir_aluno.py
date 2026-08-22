@@ -42,3 +42,6 @@ def abrir_excluir_aluno():
     def excluir():
       nome = combo_aluno.get()
     
+      if nome =="":
+          messagebox.showwarning("Aviso","Coloque o nome do aluno")
+          
