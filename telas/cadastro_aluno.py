@@ -2,7 +2,7 @@
 import tkinter as tk
 #importa de do tkinter um módulo que exibe caixas de diálogo
 from tkinter import messagebox
-
+from datetime import datetime
 #importar a função conectar que está no database.py
 from database import conectar
 
@@ -53,6 +53,41 @@ def abrir_cadastro():
 
     entrada_nascimento = tk.Entry(tela)
     entrada_nascimento.pack()
+    
+    def formatar_data(event=None):
+        #pega o que está no entry
+        texto = entrada_nascimento.get()
+        #isdigit = é um número? verifica se é
+        #filter olha caracter por caracter usando o isdigit,tudo que não for número ele joga fora
+        #join junta tudo sem espaço e caracter entre eles
+        numeros = ''.join(filter(str.isdigit, texto))
+        #pega tudo do começo até o indice 8
+        numeros = numeros[:8]
+        
+        if len(numeros) >= 5:
+            texto = (numeros[:2]
+                     +"/"
+                     +numeros[2:4]
+                     +"/"
+                     +numeros[4:])
+        
+        elif len(numeros) >= 3:
+            texto = (
+                numeros[:2]
+                +"/"
+                + numeros[2:]
+            )    
+            
+        else:
+            texto = numeros 
+            
+        entrada_nascimento.delete(0, tk.END)
+        entrada_nascimento.insert(0, texto)
+
+    entrada_nascimento.bind(
+      "<KeyRelease>",
+      formatar_data
+      )
 #================================================
 # Função do botão salvar
 #================================================
@@ -61,6 +96,9 @@ def abrir_cadastro():
      nome = entrada_nome.get()
      telefone = entrada_tel.get()
      data_nascimento = entrada_nascimento.get()
+     #Tratamento de erro e mudança de campo data
+   
+     
      
      if nome == "" or telefone == "" or data_nascimento == "":
        messagebox.showwarning("Aviso", "Preencha todos os campos!")
