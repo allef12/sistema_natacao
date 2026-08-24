@@ -54,7 +54,17 @@ def abrir_cadastro():
     entrada_nascimento = tk.Entry(tela)
     entrada_nascimento.pack()
     
-   
+    #------------------------------------------
+    #FORMATAÇÃO DE DATA
+    #---------------------------------------
+    def formatar_data(event=None):
+        #guarda data de nascimento
+        texto = entrada_nascimento.get()
+
+        #pega somente os números
+        numeros = ''.join(filter(str.isdigit, texto))
+        #limita a 8 números
+        
 #================================================
 # Função do botão salvar
 #================================================
