@@ -10,20 +10,23 @@ from database import conectar
 def salvar_aluno(nome,telefone, data_nascimento):
    
  #Cria a infraestrutura o canal de comunicação
-    conn = conectar()
-    #é o mensageiro, é o objeto que chama um método, leva e trás a mensagem
-    cursor = conn.cursor()
-    
-    #Método que executa a ação que nesse caso guarda informação no banco
-    cursor.execute(
-       "INSERT INTO alunos(nome, telefone, data_nascimento) VALUES(?, ?, ?)",
-       (nome,telefone, data_nascimento)
-       )
-    #Serve pra dar um ok na operação
-    conn.commit()
-    
-    #Finaliza a conexão, liberando espaço e limitando conexões
-    conn.close()
+    try:
+        conn = conectar()
+        #é o mensageiro, é o objeto que chama um método, leva e trás a mensagem
+        cursor = conn.cursor()
+
+        #Método que executa a ação que nesse caso guarda informação no banco
+        cursor.execute(
+            "INSERT INTO alunos(nome, telefone, data_nascimento) VALUES(?, ?, ?)",
+            (nome,telefone, data_nascimento)
+            )
+        #Serve pra dar um ok na operação
+        conn.commit()
+
+        #Finaliza a conexão, liberando espaço e limitando conexões
+        conn.close()
+    except Exception as e:
+       messagebox.showerror("Erro",f"Erro de tratamento {e}")  
 
     print('Aluno cadastrado no banco')
 #============================================    
