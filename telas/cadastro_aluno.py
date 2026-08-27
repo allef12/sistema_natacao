@@ -89,6 +89,8 @@ def abrir_cadastro():
     entrada_nascimento.bind("<KeyRelease>", formatar_data)
            
                                
+
+    
 #================================================
 # Função do botão salvar
 #================================================
