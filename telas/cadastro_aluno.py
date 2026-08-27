@@ -69,6 +69,20 @@ def abrir_cadastro():
         #limita a 8 números
         
        numeros = numeros[:8]
+       
+       if len(numeros) >= 5:
+           texto = (numeros[:2]
+                    +"/"
+                    +numeros[2:4]
+                    +"/"
+                    +numeros[4:])
+       elif len(numeros) >= 3:
+           texto = (numeros[:2]
+                    +"/"
+                    +numeros[2:4])
+       else:
+           texto = numeros
+           
 #================================================
 # Função do botão salvar
 #================================================
