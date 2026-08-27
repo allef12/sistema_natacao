@@ -68,6 +68,7 @@ def abrir_cadastro():
         numeros = ''.join(filter(str.isdigit, texto))
         #limita a 8 números
         
+       numeros = numeros[:8]
 #================================================
 # Função do botão salvar
 #================================================
