@@ -64,10 +64,8 @@ def abrir_cadastro():
         #guarda data de nascimento
         texto = entrada_nascimento.get()
 
-        #pega somente os números
-        numeros = ''.join(filter(str.isdigit, texto))
-        #limita a 8 números
-        
+       numeros = ''.join(filter(str.isdigit, texto))
+       
        numeros = numeros[:8]
        
        if len(numeros) >= 5:
