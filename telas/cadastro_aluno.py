@@ -83,6 +83,9 @@ def abrir_cadastro():
        else:
            texto = numeros
            
+       entrada_nascimento.delete(0,tk.END)
+       entrada_nascimento.insert(0,texto)
+    
 #================================================
 # Função do botão salvar
 #================================================
