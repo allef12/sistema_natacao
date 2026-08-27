@@ -104,6 +104,9 @@ def abrir_cadastro():
      if nome == "" or telefone == "" or data_nascimento == "":
        messagebox.showwarning("Aviso", "Preencha todos os campos!")
        
+       tela.lift()
+       tela.focus_force
+       
        return
      
      salvar_aluno(nome, telefone, data_nascimento)
