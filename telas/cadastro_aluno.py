@@ -61,8 +61,7 @@ def abrir_cadastro():
     #FORMATAÇÃO DE DATA
     #---------------------------------------
     def formatar_data(event=None):
-        #guarda data de nascimento
-        texto = entrada_nascimento.get()
+       texto = entrada_nascimento.get()
 
        numeros = ''.join(filter(str.isdigit, texto))
        
