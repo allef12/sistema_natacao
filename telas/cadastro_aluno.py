@@ -86,6 +86,9 @@ def abrir_cadastro():
        entrada_nascimento.delete(0,tk.END)
        entrada_nascimento.insert(0,texto)
     
+    entrada_nascimento.bind("<KeyRelease>", formatar_data)
+           
+                               
 #================================================
 # Função do botão salvar
 #================================================
