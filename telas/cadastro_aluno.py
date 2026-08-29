@@ -28,7 +28,7 @@ def salvar_aluno(nome,telefone, data_nascimento):
     except Exception as e:
        messagebox.showerror("Erro",f"Erro de tratamento {e}")  
 
-    print('Aluno cadastrado no banco')
+   
 #============================================    
 #função que vai abrir a interface gráfica 
 #============================================
