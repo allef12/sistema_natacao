@@ -52,6 +52,29 @@ def abrir_cadastro():
     entrada_tel = tk.Entry(tela)
     entrada_tel.pack()
 
+    #FORMATAR TELEFONE
+    def formatar_tel(event=None):
+       texto2 = entrada_tel.get()
+
+       numeros = ''.join(filter(str.isdigit, texto2))
+      
+
+       numeros = numeros[:11]
+
+       if len(numeros) >=7:
+          texto2 = ( "("+numeros[:2]+")" + numeros[2:7] + "-" + numeros[7:]
+                    )
+        
+       elif len(numeros) >=2:
+           texto2 = ("("+numeros[:2]+")" + numeros[2:])
+      
+       else:
+           texto2 = "("+ numeros +")"
+    
+       entrada_tel.delete(0, tk.END)
+       entrada_tel.insert(0, texto2)
+    entrada_tel.bind("<KeyRelease>", formatar_tel)   
+
     tk.Label(tela, text='data de nascimento').pack()
 
     entrada_nascimento = tk.Entry(tela)
