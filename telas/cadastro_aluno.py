@@ -134,6 +134,19 @@ def abrir_cadastro():
        tela.focus_force
        
        return
+
+     #----------------------------------------
+     #Verifica se tem os 11 números
+     #----------------------------------------
+     numero_telefone = ''.join(filter(str.isdigit, telefone))
+
+     if len(numero_telefone) != 11:
+        messagebox.showwarning("Aviso","Digite o telefone completo")
+
+        tela.lift()
+        tela.focus_force()
+        return
+
      salvar_aluno(nome, telefone, data_nascimento)
      
      messagebox.showinfo("Sucesso","Aluno cadastrado com sucesso!")
