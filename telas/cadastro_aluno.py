@@ -124,7 +124,6 @@ def abrir_cadastro():
      #Tratamento de erro e mudança de campo data
    
      
-     
      #----------------------------------------
      # Verifica se todos os campos estão preenchidos
      #-----------------------------------------
@@ -135,8 +134,6 @@ def abrir_cadastro():
        tela.focus_force
        
        return
-    
-     
      salvar_aluno(nome, telefone, data_nascimento)
      
      messagebox.showinfo("Sucesso","Aluno cadastrado com sucesso!")
