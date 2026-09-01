@@ -130,6 +130,7 @@ def abrir_cadastro():
        tela.focus_force
        
        return
+    
      
      salvar_aluno(nome, telefone, data_nascimento)
      
