@@ -125,6 +125,9 @@ def abrir_cadastro():
    
      
      
+     #----------------------------------------
+     # Verifica se todos os campos estão preenchidos
+     #-----------------------------------------
      if nome == "" or telefone == "" or data_nascimento == "":
        messagebox.showwarning("Aviso", "Preencha todos os campos!")
        
