@@ -168,7 +168,9 @@ def abrir_cadastro():
      entrada_nome.delete(0, tk.END)
      entrada_tel.delete(0, tk.END)
      entrada_nascimento.delete(0, tk.END)
-     
+
+     tela.lift()
+     tela.focus_force()
      entrada_nome.focus_set()
 
 
