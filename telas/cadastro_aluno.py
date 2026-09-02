@@ -147,6 +147,20 @@ def abrir_cadastro():
         tela.focus_force()
         return
 
+    #----------------------------------------
+    # VALIDAÇÃO DE DATA E TRATAMENTO DE ERRO
+    #----------------------------------------
+     try:
+        data_nascimento = datetime.strptime(data_nascimento, "%d/%m/%Y")
+
+     except ValueError:
+        messagebox.showerror("Erro","Formato de data inválida")
+
+        tela.lift()
+        tela.focus_force()
+
+        return
+
      salvar_aluno(nome, telefone, data_nascimento)
      
      messagebox.showinfo("Sucesso","Aluno cadastrado com sucesso!")
