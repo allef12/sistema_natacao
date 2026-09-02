@@ -8,4 +8,6 @@ app = FastAPI() # quando alguém acessa, o app recebe a requisição
 def inicio(): #associa a função a rota
     return{"mensagem":"API funcionando"}
 
+@app.get("/alunos")
+def listar_alunos():
 
