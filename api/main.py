@@ -10,4 +10,14 @@ def inicio(): #associa a função a rota
 
 @app.get("/alunos")
 def listar_alunos():
+    conn = conectar()
+    cursor = conn.cursor()
+
+    cursor.execute("""SELECT id,nome,telefone,data_nascimento
+                      FROM alunos""")
+
+    alunos = cursor.fetchall()
+
+    conn.close
+
 
