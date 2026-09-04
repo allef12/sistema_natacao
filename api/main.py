@@ -12,4 +12,3 @@ def inicio():
 app.include_router(alunos.router)
 
 app.include_router(pagamentos.router)
-
