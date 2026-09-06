@@ -27,3 +27,6 @@ def listar_alunos():
         resultado.append(dados)
 
     return resultado
+
+@router.get("/alunos/{id}")
+def buscar_alunos(id: int):
