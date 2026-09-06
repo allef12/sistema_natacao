@@ -15,3 +15,15 @@ def listar_alunos():
 
     conn.close()
 
+    resultado = []
+
+    for aluno in alunos:
+        dados = {
+            "id":aluno.id,
+            "nome":aluno.nome,
+            "telefone":aluno.telefone,
+            "data_nascimento": aluno.data_nascimento
+        }
+        resultado.append(dados)
+
+    return resultado
