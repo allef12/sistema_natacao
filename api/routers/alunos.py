@@ -27,3 +27,4 @@ def listar_alunos():
         resultado.append(dados)
 
     return resultado
+   
