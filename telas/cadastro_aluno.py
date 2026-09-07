@@ -47,7 +47,7 @@ def abrir_cadastro():
     entrada_nome = tk.Entry(tela)
     entrada_nome.pack()
 
-    tk.Label(tela,text='telefone').pack()
+    tk.Label(tela,text='Telefone').pack()
 
     entrada_tel = tk.Entry(tela)
     entrada_tel.pack()
@@ -75,7 +75,7 @@ def abrir_cadastro():
        entrada_tel.insert(0, texto2)
     entrada_tel.bind("<KeyRelease>", formatar_tel)   
 
-    tk.Label(tela, text='data de nascimento').pack()
+    tk.Label(tela, text='Data de nascimento').pack()
 
     entrada_nascimento = tk.Entry(tela)
     entrada_nascimento.pack()
@@ -99,7 +99,7 @@ def abrir_cadastro():
        elif len(numeros) >= 3:
            texto = (numeros[:2]
                     +"/"
-                    +numeros[2:4])
+                    +numeros[2:])
        else:
            texto = numeros
 
@@ -121,40 +121,57 @@ def abrir_cadastro():
      nome = entrada_nome.get()
      telefone = entrada_tel.get()
      data_nascimento = entrada_nascimento.get()
-     #Tratamento de erro e mudança de campo data
-   
      
-     #----------------------------------------
-     # Verifica se todos os campos estão preenchidos
-     #-----------------------------------------
      if nome == "" or telefone == "" or data_nascimento == "":
-       messagebox.showwarning("Aviso", "Preencha todos os campos!")
-       
-       tela.lift()
-       tela.focus_force
-       
-       return
+        messagebox.showwarning("Aviso", "Preencha todos os campos!")
+                
+        tela.lift()
+        tela.focus_force()
+                
+        return
 
-     #----------------------------------------
-     #Verifica se tem os 11 números
-     #----------------------------------------
-     numero_telefone = ''.join(filter(str.isdigit, telefone))
-
-     if len(numero_telefone) != 11:
-        messagebox.showwarning("Aviso","Digite o telefone completo")
-
+        
+    #--------------------------
+    # VALIDAÇÃO SOMENTE TEXTO sem outros caracteres
+    #--------------------------
+     nome_sem_espaço = nome.replace(" ","")
+        
+     if not nome_sem_espaço.isalpha():
+        messagebox.showwarning("Aviso", "Digite um nome válido!")
+            
+        tela.lift()
+        tela.focus_force()
+        return
+            
+    #--------------------------
+    #LIMITA O TAMANHO DO TEXTO
+    #--------------------------
+     if len(nome) <3 or len(nome) >50:
+        messagebox.showwarning("Aviso","Nome deve ter entre 3 a 50 caracteres")
         tela.lift()
         tela.focus_force()
         return
 
     #----------------------------------------
-    # VALIDAÇÃO DE DATA E TRATAMENTO DE ERRO
+    #Verifica se tem os 11 números
     #----------------------------------------
+     numero_telefone = ''.join(filter(str.isdigit, telefone))
+
+     if len(numero_telefone) != 11:
+        messagebox.showwarning("Aviso","Telefone: digite 11 números")
+
+        tela.lift()
+        tela.focus_force()
+        return
+
+        #----------------------------------------
+        # VALIDAÇÃO DE DATA E TRATAMENTO DE ERRO
+        #----------------------------------------
      try:
         data_nascimento = datetime.strptime(data_nascimento, "%d/%m/%Y")
 
      except ValueError:
-        messagebox.showerror("Erro","Formato de data inválida")
+        messagebox.showerror("Erro","Data: use DD/MM/AAAA")
 
         tela.lift()
         tela.focus_force()
@@ -162,9 +179,9 @@ def abrir_cadastro():
         return
 
      salvar_aluno(nome, telefone, data_nascimento)
-     
+    
      messagebox.showinfo("Sucesso","Aluno cadastrado com sucesso!")
-     
+    
      entrada_nome.delete(0, tk.END)
      entrada_tel.delete(0, tk.END)
      entrada_nascimento.delete(0, tk.END)
