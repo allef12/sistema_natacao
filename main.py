@@ -1,4 +1,3 @@
-
 from database import conectar
 
 import tkinter as tk 
@@ -46,7 +45,3 @@ botao7.pack(pady=10)
 
 
 janela.mainloop()
-
-
-
-
