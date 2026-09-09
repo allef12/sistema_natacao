@@ -13,10 +13,10 @@ from telas.excluir_aluno import abrir_excluir_aluno
 
 
 janela = tk.Tk()
-janela.title('Sistema de Natação')
+janela.title('Sistema de Natação Splash')
 janela.geometry('800x600')
 
-titulo = tk.Label(janela , text='Sistema Natação Mariana', font=('Arial',20))
+titulo = tk.Label(janela , text='Sistema Natação Splash', font=('Arial',20))
 titulo.pack(pady=20)
 
 botao1 = tk.Button(janela, text='Cadastrar Aluno', width=20, command=abrir_cadastro)
@@ -25,13 +25,13 @@ botao1.pack(pady=10)
 botao2 = tk.Button(janela,text='Fazer pagamento',width=20,command=abrir_pagamentos )
 botao2.pack(pady=10)
 
-botao3 = tk.Button(janela,text='listar alunos', width=20, command=abrir_lista)
+botao3 = tk.Button(janela,text='Listar alunos', width=20, command=abrir_lista)
 botao3.pack(pady=10)
 
-botao4 = tk.Button(janela,text='listar pagamentos', width=20,command=abrir_lista_pagamentos)
+botao4 = tk.Button(janela,text='Listar pagamentos', width=20,command=abrir_lista_pagamentos)
 botao4.pack(pady=10)
 
-botao5 = tk.Button(janela,text='listar inadimplentes', width=20,command=abrir_inadimplentes)
+botao5 = tk.Button(janela,text='Listar inadimplentes', width=20,command=abrir_inadimplentes)
 botao5.pack(pady=10)
 
 botao6 = tk.Button(janela, text="Editar aluno",width=20,command=abrir_editar_alunos)
