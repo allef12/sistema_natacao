@@ -1,5 +1,6 @@
 from fastapi import APIRouter
 from database import conectar
+from models import Aluno
 
 router = APIRouter()
 
@@ -52,3 +53,12 @@ def buscar_alunos(id: int):
     }
     return dados
     
+#-----------------------------------  
+#Rota de cadastro
+#-----------------------------------
+#aluno → é o dado que a API vai receber.
+#Aluno → é o modelo Pydantic que define as regras.
+#aluno é declarado dentro da função mesmo
+#codigo 201 == CODIGO DE CRIAÇÃO
+@router.post("/alunos",status_code=201)
+def cadastrar_aluno(aluno:Aluno):
