@@ -62,3 +62,5 @@ def buscar_alunos(id: int):
 #codigo 201 == CODIGO DE CRIAÇÃO
 @router.post("/alunos",status_code=201)
 def cadastrar_aluno(aluno:Aluno):
+    conn = conectar()
+    cursor = conn.cursor()
