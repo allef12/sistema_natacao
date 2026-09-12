@@ -64,3 +64,8 @@ def buscar_alunos(id: int):
 def cadastrar_aluno(aluno:Aluno):
     conn = conectar()
     cursor = conn.cursor()
+
+    cursor.execute("""INSERT INTO alunos (nome,telefone,data_nascimento)
+                      OUTPUT INSERTED.id VALUES(?,?,?)""",
+                      (aluno.nome,aluno.telefone,aluno.data_nascimento.strftime("%Y/%m/%d")
+                       ))
