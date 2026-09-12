@@ -3,7 +3,9 @@ from database import conectar
 from models import Aluno
 
 router = APIRouter()
-
+#---------------------------
+#ROTA BUSCA TODOS OS ALUNOS
+#---------------------------
 @router.get("/alunos")
 def listar_alunos():
     conn = conectar()
@@ -28,7 +30,9 @@ def listar_alunos():
         resultado.append(dados)
 
     return resultado
-
+#---------------------------
+#ROTA BUSCA  OS ALUNOS ESPECÍFICOS
+#---------------------------
 @router.get("/alunos/{id}")
 def buscar_alunos(id: int):
     conn = conectar()
