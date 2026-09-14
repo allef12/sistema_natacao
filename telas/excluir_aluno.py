@@ -11,82 +11,132 @@ def abrir_excluir_aluno():
     tela.title("Excluir Aluno")
     tela.geometry("400x300")
 
-
-    #Cria a conexão com o banco de dados
-    conn = conectar()
-    #cria o mensageiro, controla o fluxo com o banco
-    cursor = conn.cursor()
-    #Executa a ação de fazer a consulta
-    cursor.execute("""SELECT id,nome
-                    FROM alunos""")
-    #armazena dados capturados do banco
-    dados = cursor.fetchall()
-    #fecha conexão com o banco
-    conn.close()
-
-
-    #Cria lista de aluno 
+    # Cria lista de alunos
     lista_alunos = []
-    #mapeia id com nome
-    mapa_aluno = {}
-    #Percorrendo a lista
-    for aluno in dados:
-        #adicionar nome e ir deixando no final da lista
-        lista_alunos.append(aluno.nome)
-        #associa aluno > id
-        mapa_aluno[aluno.nome] = aluno.id
 
-    #Cria rótulo de texto
+    # Mapeia nome do aluno -> id
+    mapa_aluno = {}
+
+    # Cria rótulo de texto
     tk.Label(tela, text="Selecione o aluno").pack()
-    #Cria campo de seleção, uma lista suspensa
-    combo_aluno = ttk.Combobox(tela,values=lista_alunos, state="readonly")
+
+    # Cria campo de seleção
+    combo_aluno = ttk.Combobox(
+        tela,
+        values=lista_alunos,
+        state="readonly"
+    )
     combo_aluno.pack()
 
-    def excluir():
-      nome = combo_aluno.get()
-    
-      if nome =="":
-          messagebox.showwarning("Aviso","Coloque o nome do aluno")
-          
-          tela.lift()
-                        #coloca o foco na janela
-          tela.focus_force()
-          return
-      
-      
-      aluno_id = mapa_aluno[nome]
+    def carregar_alunos():
 
-      confirmar = messagebox.askyesno("Confirmar exclusão", f"Deseja excluir o aluno\n\n {nome}?")
-      
-      if not confirmar:
-          tela.lift()
-                        #coloca o foco na janela
-          tela.focus_force()
-          return
-     
-      try: 
+        # Limpa a lista antiga
+        lista_alunos.clear()
+
+        # Limpa o mapa antigo
+        mapa_aluno.clear()
+
+        # Cria a conexão com o banco
         conn = conectar()
+
+        # Cria o cursor
         cursor = conn.cursor()
 
+        # Busca os alunos novamente
         cursor.execute("""
-                        DELETE FROM alunos
-                        WHERE id = ?""", (aluno_id,)) 
+            SELECT id, nome
+            FROM alunos
+        """)
 
-        conn.commit()  
+        # Armazena os dados
+        dados = cursor.fetchall()
 
+        # Fecha a conexão
         conn.close()
-        
-        messagebox.showinfo("Sucesso","Aluno excluido com sucesso!")
-        #Depois da exclusão limpa o combobox  
-        combo_aluno.set("")
-        #trazer janela pra frente 
-        tela.lift()
-        #coloca o foco na janela
-        tela.focus_force()
-    
-      except Exception as e:
-        messagebox.showerror("Erro",f"Não foi possível excluir o aluno:\n\n{e}")
-    
-    #Botão de exclusão
-    tk.Button(tela,text="Excluir",command=excluir).pack(pady=10)
-            
+
+        # Percorre os alunos encontrados
+        for aluno in dados:
+
+            # aluno[0] = id
+            # aluno[1] = nome
+            lista_alunos.append(aluno[1])
+
+            # Associa nome -> id
+            mapa_aluno[aluno[1]] = aluno[0]
+
+        # Atualiza os valores do Combobox
+        combo_aluno["values"] = lista_alunos
+
+    # Carrega os alunos quando a tela abre
+    carregar_alunos()
+
+    def excluir():
+
+        nome = combo_aluno.get()
+
+        if nome == "":
+            messagebox.showwarning(
+                "Aviso",
+                "Coloque o nome do aluno"
+            )
+
+            tela.lift()
+            tela.focus_force()
+            return
+
+        aluno_id = mapa_aluno[nome]
+
+        confirmar = messagebox.askyesno(
+            "Confirmar exclusão",
+            f"Deseja excluir o aluno\n\n{nome}?"
+        )
+
+        if not confirmar:
+            tela.lift()
+            tela.focus_force()
+            return
+
+        try:
+
+            conn = conectar()
+            cursor = conn.cursor()
+
+            cursor.execute("""
+                DELETE FROM alunos
+                WHERE id = ?
+            """, (aluno_id,))
+
+            conn.commit()
+            conn.close()
+
+            messagebox.showinfo(
+                "Sucesso",
+                "Aluno excluído com sucesso!"
+            )
+
+            # Atualiza a lista do Combobox
+            carregar_alunos()
+
+            # Limpa a seleção
+            combo_aluno.set("")
+
+            # Traz a janela para frente
+            tela.lift()
+
+            # Coloca o foco na janela
+            tela.focus_force()
+
+        except Exception as e:
+
+            messagebox.showerror(
+                "Erro",
+                f"Não foi possível excluir o aluno:\n\n{e}"
+            )
+
+    # Botão de exclusão
+    tk.Button(
+        tela,
+        text="Excluir",
+        command=excluir
+    ).pack(pady=10)
+
