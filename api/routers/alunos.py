@@ -6,7 +6,7 @@ router = APIRouter()
 #---------------------------
 #ROTA BUSCA TODOS OS ALUNOS
 #---------------------------
-@router.get("/alunos")
+@router.get("/alunos", tags=["Alunos"])
 def listar_alunos():
     conn = conectar()
     cursor = conn.cursor()
@@ -33,7 +33,7 @@ def listar_alunos():
 #---------------------------
 #ROTA BUSCA  OS ALUNOS ESPECÍFICOS
 #---------------------------
-@router.get("/alunos/{id}")
+@router.get("/alunos/{id}", tags=["Alunos"])
 def buscar_alunos(id: int):
     conn = conectar()
     cursor = conn.cursor()
@@ -64,7 +64,7 @@ def buscar_alunos(id: int):
 #Aluno → é o modelo Pydantic que define as regras.
 #aluno é declarado dentro da função mesmo
 #codigo 201 == CODIGO DE CRIAÇÃO
-@router.post("/alunos",status_code=201)
+@router.post("/alunos",status_code=201, tags=["Alunos"])
 def cadastrar_aluno(aluno:Aluno):
     conn = conectar()
     cursor = conn.cursor()
