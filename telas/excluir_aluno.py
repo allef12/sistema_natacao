@@ -28,7 +28,6 @@ def abrir_excluir_aluno():
     )
     combo_aluno.pack()
 
-    
     def excluir():
 
         nome = combo_aluno.get()
