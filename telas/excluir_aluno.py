@@ -3,8 +3,10 @@ from tkinter import ttk
 from database import conectar
 from tkinter import messagebox
 
+
 def abrir_excluir_aluno():
-    #Criar e configurar a janela
+
+    # Criar e configurar a janela
     tela = tk.Toplevel()
     tela.title("Excluir Aluno")
     tela.geometry("400x300")
