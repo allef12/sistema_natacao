@@ -4,7 +4,7 @@ from routers import pagamentos
 
 app = FastAPI()
 
-@app.get("/")
+@app.get("/", tags=["Início"])
 def inicio():
     return{"mensagem":"API funcionando"}
 
