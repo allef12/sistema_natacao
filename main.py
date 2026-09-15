@@ -13,7 +13,7 @@ from telas.excluir_aluno import abrir_excluir_aluno
 
 janela = tk.Tk()
 janela.title('Sistema de Natação Splash')
-janela.geometry('800x600')
+janela.geometry('1024x600')
 
 titulo = tk.Label(janela , text='Sistema Natação Splash', font=('Arial',20))
 titulo.pack(pady=20)
