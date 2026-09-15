@@ -3,6 +3,9 @@ from database import conectar
 from models import Pagamento
 
 router = APIRouter() 
+#------------------------------
+#ROTA POST
+#------------------------------
 
 @router.post("/pagamentos",tags=["Pagamentos"])
 def todos_pagamentos(pag:Pagamento):
