@@ -67,6 +67,9 @@ def abrir_pagamentos():
             messagebox.showwarning(
                 "ERRO",
                 "Preencha todos os campos")
+
+            tela.lift()
+            tela.focus_force()
             
             return
         
@@ -86,6 +89,16 @@ def abrir_pagamentos():
         conn.close()
         
         messagebox.showinfo("Sucesso","Pagamento salvo com sucesso")
+
+        combo_nome.delete(0,tk.END)
+        combo_mes.delete(0,tk.END)
+        combo_valor.delete(0,tk.END)
+        combo_status.delete(0,tk.END)
+
+        combo_nome.focus_set()
+
+        tela.lift()
+        tela.focus_force()
 
     botao = tk.Button(tela, text="Salvar pagamento", command=salvar_pagamento)
     botao.pack(pady=10)
