@@ -7,7 +7,7 @@ from datetime import datetime
 from database import conectar
 
 #cria a função que salva aluno no banco de dados
-def salvar_aluno(nome,telefone, data_nascimento):
+def salvar_aluno(nome,telefone, data_nascimento,nome_mae):
    
  #Cria a infraestrutura o canal de comunicação
     try:
@@ -17,8 +17,8 @@ def salvar_aluno(nome,telefone, data_nascimento):
 
         #Método que executa a ação que nesse caso guarda informação no banco
         cursor.execute(
-            "INSERT INTO alunos(nome, telefone, data_nascimento) VALUES(?, ?, ?)",
-            (nome,telefone, data_nascimento)
+            "INSERT INTO alunos(nome, telefone, data_nascimento,nome_mae) VALUES(?, ?, ?,?)",
+            (nome,telefone, data_nascimento,nome_mae)
             )
         #Serve pra dar um ok na operação
         conn.commit()
@@ -104,13 +104,17 @@ def abrir_cadastro():
            texto = numeros
 
         
+    
            
        entrada_nascimento.delete(0,tk.END)
        entrada_nascimento.insert(0,texto)
     
     entrada_nascimento.bind("<KeyRelease>", formatar_data)
            
-                               
+    tk.Label(tela, text="Nome da mãe").pack()
+
+    entrada_mae = tk.Entry(tela)
+    entrada_mae.pack()                          
 
     
 #================================================
@@ -121,8 +125,9 @@ def abrir_cadastro():
      nome = entrada_nome.get()
      telefone = entrada_tel.get()
      data_nascimento = entrada_nascimento.get()
+     nome_mae = entrada_mae.get()
      
-     if nome == "" or telefone == "" or data_nascimento == "":
+     if nome == "" or telefone == "" or data_nascimento == "" or nome_mae =="":
         messagebox.showwarning("Aviso", "Preencha todos os campos!")
                 
         tela.lift()
@@ -142,7 +147,15 @@ def abrir_cadastro():
         tela.lift()
         tela.focus_force()
         return
-            
+    
+     nome_sem_espaco_mae = nome_mae.replace(" ","")
+      
+     if not nome_sem_espaco_mae.isalpha():
+          messagebox.showwarning("Aviso", "Digite um nome válido!")      
+
+          tela.lift()
+          tela.focus_force()
+          return
     #--------------------------
     #LIMITA O TAMANHO DO TEXTO
     #--------------------------
@@ -178,13 +191,14 @@ def abrir_cadastro():
 
         return
 
-     salvar_aluno(nome, telefone, data_nascimento)
+     salvar_aluno(nome, telefone, data_nascimento,nome_mae)
     
      messagebox.showinfo("Sucesso","Aluno cadastrado com sucesso!")
     
      entrada_nome.delete(0, tk.END)
      entrada_tel.delete(0, tk.END)
      entrada_nascimento.delete(0, tk.END)
+     entrada_mae.delete(0,tk.END)
 
      tela.lift()
      tela.focus_force()
