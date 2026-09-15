@@ -105,4 +105,29 @@ def editar_aluno(id: int, aluno:Aluno):
               "telefone":aluno.telefone,
               "data_nascimento":aluno.data_nascimento}
           }
+#----------------------------------
+#ROTA DELETE
+#----------------------------------
+@router.delete("/alunos/{id}", tags=["Alunos"])
+def deletar_aluno(id:int):
+    conn = conectar()
+    cursor = conn.cursor()
 
+    cursor.execute("""DELETE FROM alunos
+                      WHERE id = ?""",(id,))
+    
+    if cursor.rowcount == 0:
+     return{
+        "mensagem":"Aluno não cadastrado",
+        "id":id
+        }
+    conn.commit()
+    conn.close()
+
+    return{
+        "mensagem":"Aluno deletado com sucesso",
+        "aluno":{
+            "id":id,
+            
+        }
+    }
