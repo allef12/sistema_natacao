@@ -7,3 +7,9 @@ class Aluno(BaseModel):
     telefone: Optional[str] = None
     data_nascimento: date
     
+
+class Pagamento(BaseModel):
+    aluno_id: int
+    mes: str
+    valor:float
+    
