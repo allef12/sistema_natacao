@@ -13,12 +13,12 @@ def abrir_lista():
     conn = conectar()
     cursor = conn.cursor()
 
-    cursor.execute('SELECT nome, telefone, data_nascimento FROM alunos')
+    cursor.execute('SELECT nome, telefone, data_nascimento,nome_mae FROM alunos')
 
     alunos = cursor.fetchall()
 
     for aluno in alunos:
-        texto = f"{aluno.nome} - {aluno.telefone} - {aluno.data_nascimento}"
+        texto = f"{aluno.nome} - {aluno.telefone} - {aluno.data_nascimento} - {aluno.nome_mae}"
 
         tk.Label(tela,text= texto).pack()
 
