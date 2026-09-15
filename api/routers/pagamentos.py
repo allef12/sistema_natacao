@@ -1,6 +1,6 @@
 from fastapi import APIRouter
-from database import conectar
-from models import Pagamento
+from database import conectar 
+from models import Pagamento 
 
 router = APIRouter()  
 #------------------------------
