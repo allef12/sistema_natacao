@@ -84,3 +84,25 @@ def cadastrar_aluno(aluno:Aluno):
                 "telefone":aluno.telefone,
                 "data_nascimento":aluno.data_nascimento
             }}
+#---------------------------
+#ROTA ATUALIZA O ALUNO
+#---------------------------
+@router.put("/alunos/{id}", tags=["Alunos"])
+def editar_aluno(id: int, aluno:Aluno):
+   conn = conectar()
+   cursor = conn.cursor()
+
+   cursor.execute("""UPDATE alunos
+                     SET nome = ?,telefone = ?,data_nascimento = ?
+                     WHERE id = ?""",(aluno.nome,aluno.telefone,aluno.data_nascimento.strftime("%Y-%m-%d"),id))
+   conn.commit()
+   conn.close()
+
+   return{"mesagem":"Atualização de aluno ok",
+          "alunos":{
+              "id":id,
+              "nome":aluno.nome,
+              "telefone":aluno.telefone,
+              "data_nascimento":aluno.data_nascimento}
+          }
+
