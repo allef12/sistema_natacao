@@ -73,3 +73,14 @@ def cadastrar_aluno(aluno:Aluno):
                       OUTPUT INSERTED.id VALUES(?,?,?)""",
                       (aluno.nome,aluno.telefone,aluno.data_nascimento.strftime("%Y/%m/%d")
                        ))
+    novo_id = cursor.fetchone()[0]
+    conn.commit()
+    conn.close()
+
+    return {"mensagem":"Cadastro de aluno feito com sucesso",
+            "aluno":{
+                "id":novo_id,
+                "nome":aluno.nome,
+                "telefone":aluno.telefone,
+                "data_nascimento":aluno.data_nascimento
+            }}
