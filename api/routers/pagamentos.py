@@ -21,9 +21,9 @@ def registro_pagamentos(pag:Pagamento,):
 
     return{
         "mensagem":"Pagamento registrado com sucesso",
-        "pagamento":{pag.aluno_id,
-                     pag.mes,
-                     pag.valor,
-                     "Pago"}
+        "pagamento":{"aluno":pag.aluno_id,
+                     "mes":pag.mes,
+                     "valor":pag.valor,
+                     "status":"Pago"}
     }
 
