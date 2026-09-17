@@ -27,3 +27,32 @@ def registro_pagamentos(pag:Pagamento,):
                      "status":"Pago"}
     }
 
+
+#-----------------------------
+#ROTA GET todos
+#-----------------------------
+
+@router.get("/pagamentos",tags=["Pagamentos"])
+def listar_todos_pagamentos():
+    conn = conectar()
+    cursor = conn.cursor()
+
+    cursor.execute("""SELECT p.id,a.nome,p.valor,p.mes,p.status
+                      FROM alunos a
+                      JOIN pagamentos p ON a.id = p.aluno_id""")
+
+    aluno = cursor.fetchall()
+
+    conn.close()
+
+    return[
+        {"id":alunos.id,
+         "nome":alunos.nome,
+         "valor":alunos.valor,
+         "mes":alunos.mes,
+         "status":alunos.status
+         }
+         for alunos in aluno
+    ]
+
+
