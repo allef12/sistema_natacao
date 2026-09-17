@@ -27,3 +27,4 @@ def registro_pagamentos(pag:Pagamento,):
                      "status":"Pago"}
     }
 
+#TESTE 
