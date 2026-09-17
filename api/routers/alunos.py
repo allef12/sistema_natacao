@@ -77,7 +77,7 @@ def cadastrar_aluno(aluno:Aluno):
     conn.commit()
     conn.close()
 
-    return {"mensagem":"Cadastro de aluno feito com sucesso",
+    return {"mensagem":"Cadastro de aluno feito com sucesso", 
             "aluno":{
                 "id":novo_id,
                 "nome":aluno.nome,
