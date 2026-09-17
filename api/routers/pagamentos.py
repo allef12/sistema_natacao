@@ -80,5 +80,5 @@ def pag_especifico(id:int):
           "aluno_id":pagamento.aluno_id,
           "mes":pagamento.mes,
           "valor":pagamento.valor,
-          "status":aluno.status
+          "status":pagamento.status
          }
