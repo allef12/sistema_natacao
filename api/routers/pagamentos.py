@@ -56,3 +56,29 @@ def listar_todos_pagamentos():
     ]
 
 
+#----------------------------------
+#ROTA GET pagamento específico
+#----------------------------------
+
+@router.get("/pagamentos/{id}",tags=["Pagamentos"])
+def pag_especifico(id:int):
+    conn = conectar()
+    cursor = conn.cursor()
+
+    cursor.execute("""SELECT id,aluno_id,mes,valor,status
+                       FROM pagamentos
+                       WHERE id = ?""",(id,))
+    pagamento = cursor.fetchone()
+
+    conn.close()
+
+    if pagamento is None:
+        return{"mensagem":"Pagamento não encontrado"}
+
+    return{
+          "id":pagamento.id,
+          "aluno_id":pagamento.aluno_id,
+          "mes":pagamento.mes,
+          "valor":pagamento.valor,
+          "status":aluno.status
+         }
