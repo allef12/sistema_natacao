@@ -28,6 +28,48 @@ def abrir_excluir_aluno():
     )
     combo_aluno.pack()
 
+    def carregar_alunos():
+
+        # Limpa a lista antiga
+        lista_alunos.clear()
+
+        # Limpa o mapa antigo
+        mapa_aluno.clear()
+
+        # Cria a conexão com o banco
+        conn = conectar()
+
+        # Cria o cursor
+        cursor = conn.cursor()
+
+        # Busca os alunos novamente
+        cursor.execute("""
+            SELECT id, nome
+            FROM alunos
+        """)
+
+        # Armazena os dados
+        dados = cursor.fetchall()
+
+        # Fecha a conexão
+        conn.close()
+
+        # Percorre os alunos encontrados
+        for aluno in dados:
+
+            # aluno[0] = id
+            # aluno[1] = nome
+            lista_alunos.append(aluno[1])
+
+            # Associa nome -> id
+            mapa_aluno[aluno[1]] = aluno[0]
+
+        # Atualiza os valores do Combobox
+        combo_aluno["values"] = lista_alunos
+
+    # Carrega os alunos quando a tela abre
+    carregar_alunos()
+
     def excluir():
 
         nome = combo_aluno.get()
