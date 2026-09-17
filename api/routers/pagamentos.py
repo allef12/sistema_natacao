@@ -27,8 +27,6 @@ def registro_pagamentos(pag:Pagamento,):
                      "status":"Pago"}
     }
 
-#TESTE 
-
 #-----------------------------
 #ROTA GET todos
 #-----------------------------
