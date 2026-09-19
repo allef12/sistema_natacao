@@ -27,8 +27,8 @@ def listar_alunos():
             "telefone":aluno.telefone,
             "data_nascimento": aluno.data_nascimento
             
-        }   for aluno in alunos
-           ]
+         }   for aluno in alunos
+    ]
         
 
 
