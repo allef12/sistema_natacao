@@ -1,4 +1,4 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, HTTPException
 from database import conectar
 from models import Aluno
 
@@ -17,9 +17,6 @@ def listar_alunos():
     alunos = cursor.fetchall()
 
     conn.close()
-
-   
-
     
     return[{
             "id":aluno.id,
@@ -47,8 +44,10 @@ def buscar_alunos(id: int):
     aluno = cursor.fetchone()
     conn.close()
 
+    #pare essa rota e responda o cliente com esse erro http
     if aluno is None:
-        return {"mensagem":"Não foi encontrado aluno"}
+        raise HTTPException(status_code=404, detail="Aluno não encontrado")
+    
 
     dados = {
         "id":aluno.id,

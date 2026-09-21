@@ -1,4 +1,4 @@
-from fastapi import APIRouter
+from fastapi import APIRouter,HTTPException
 from database import conectar 
 from models import Pagamento 
 
@@ -73,7 +73,7 @@ def pag_especifico(id:int):
     conn.close()
 
     if pagamento is None:
-        return{"mensagem":"Pagamento não encontrado"}
+      raise HTTPException(status_code=404,detail="Pagamento não encontrado")
 
     return{
           "id":pagamento.id,
