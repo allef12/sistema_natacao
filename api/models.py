@@ -1,6 +1,6 @@
 from datetime import date
 from typing import Optional
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 class Aluno(BaseModel):
     nome: str
@@ -11,5 +11,5 @@ class Aluno(BaseModel):
 class Pagamento(BaseModel):
     aluno_id: int
     mes: str
-    valor:float
+    valor:float = Field(gt=0)
     
