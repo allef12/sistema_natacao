@@ -1,6 +1,6 @@
 from datetime import date
 from typing import Optional
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator
 from enum import Enum
 
 class Aluno(BaseModel):
@@ -18,4 +18,4 @@ class Pagamento(BaseModel):
 class StatusPagamento(str, Enum):
     pago = "Pago"
     pendente = "Pendente"
-    
+
