@@ -13,9 +13,20 @@ class Pagamento(BaseModel):
     aluno_id: int
     mes: str = Field(min_length=3, max_length=20)
     valor:float = Field(gt=0)
+    status: StatusPagamento
     
 
 class StatusPagamento(str, Enum):
     pago = "Pago"
     pendente = "Pendente"
 
+class TesteAluno(BaseModel):
+    nome: str
+
+    @field_validator("nome")
+    @classmethod
+    def validar_nome(cls, valor):
+        if not valor.isalpha():
+            raise ValueError("O nome deve conter letras ")
+
+        return valor
