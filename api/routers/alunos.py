@@ -134,6 +134,3 @@ def deletar_aluno(id:int):
         }
     }
 
-@router.post("/teste-nome")
-def teste(test:TesteAluno):
-   return test
