@@ -1,6 +1,7 @@
 from fastapi import APIRouter, HTTPException
 from database import conectar
 from models import Aluno
+from models import TesteAluno
 
 router = APIRouter()
 #---------------------------
@@ -132,3 +133,7 @@ def deletar_aluno(id:int):
             
         }
     }
+
+@router.post("/teste-nome")
+def teste(test:TesteAluno):
+   return test
