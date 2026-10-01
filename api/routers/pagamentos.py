@@ -8,7 +8,7 @@ router = APIRouter()
 #------------------------------
 
 @router.post("/pagamentos",tags=["Pagamentos"], status_code=201)
-def registro_pagamentos(pag:Pagamento,):
+def registro_pagamentos(pag:Pagamento):
     conn = conectar()
     cursor = conn.cursor()
 
