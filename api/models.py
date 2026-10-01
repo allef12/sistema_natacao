@@ -10,6 +10,9 @@ class Aluno(BaseModel):
     
 
 class Pagamento(BaseModel):
+    aluno_id:int
+    mes:str
+    valor:float = Field(gt=0)
     
 
 class StatusPagamento(str, Enum):
