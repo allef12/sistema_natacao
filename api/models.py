@@ -10,10 +10,6 @@ class Aluno(BaseModel):
     
 
 class Pagamento(BaseModel):
-    aluno_id: int
-    mes: str = Field(min_length=3, max_length=20)
-    valor:float = Field(gt=0)
-    status: StatusPagamento
     
 
 class StatusPagamento(str, Enum):
