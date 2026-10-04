@@ -13,6 +13,8 @@ class Pagamento(BaseModel):
     aluno_id:int
     mes:str
     valor:float = Field(gt=0)
+
+    @field_validator("mes")
     
 
 class StatusPagamento(str, Enum):
