@@ -16,6 +16,15 @@ class Pagamento(BaseModel):
 
     @field_validator("mes")
     @classmethod
+    def validar_mes(cls, valor):
+        meses = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
+         "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"
+            ]
+        if valor not in meses:
+            raise ValueError("Mês inválido")
+
+        return valor 
+    
     
 
 class StatusPagamento(str, Enum):
