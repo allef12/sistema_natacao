@@ -8,6 +8,7 @@ class Aluno(BaseModel):
   telefone:str
   data_nascimento:date
 
+  @field_validator("telefone")
     
 
 class Pagamento(BaseModel):
