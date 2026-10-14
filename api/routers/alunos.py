@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException
 from database import conectar
 from models import Aluno
-from models import TesteAluno
+
 
 router = APIRouter()
 #---------------------------
