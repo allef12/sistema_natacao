@@ -8,17 +8,7 @@ class Aluno(BaseModel):
   telefone:str
   data_nascimento:date
 
-  @field_validator("telefone")
-  @classmethod
-  def validar_e_limpar_telefone(cls,valor):
-      apenas_numeros = re.sub(r"\D","",valor)
-
-      if len(apenas_numeros) not in (10, 11):
-          raise ValueError("O número tem que ter entre 10 e 11 (com DDD)")
-
-      return apenas_numeros
- 
-    
+  
 
 class Pagamento(BaseModel):
     aluno_id:int
