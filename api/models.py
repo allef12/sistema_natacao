@@ -14,7 +14,7 @@ class Aluno(BaseModel):
       apenas_numeros = re.sub(r"\D","",valor)
       
       if len(apenas_numeros) not in(10, 11):
-          raise valueError("O número tem que ter 10 ou 11 dígitos com (DDD)")
+          raise ValueError("O número tem que ter 10 ou 11 dígitos com (DDD)")
       
       return valor
 
