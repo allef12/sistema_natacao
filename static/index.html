@@ -1,4 +1,4 @@
-<!DOCTYPE>
+<!DOCTYPE html>
 <html lang="pt-BR">
     <head>
         <meta charset="UTF-8">
@@ -11,89 +11,66 @@
     </head>
 
     <body>
-        <aside class="sidebar">
+        <aside class="barra-lateral">
             
-            <div class="logo"><i class="ph ph-waves"></i>
-            <h2>Escola Natação</h2>
+            <div class="logo">
+                <i class="ph ph-waves"></i>
+                <h2>Escola Natação</h2>
             </div>
 
             <nav class="menu">
-                <button class="nav-btn active"><i class="ph ph-user"></i>Aluno</button>
-                <button class="nav-btn"><i class="ph ph-currency-dollar"></i>Pagamentos</button>
-                <button class="nav-btn"><i class="ph ph-chart-bar"></i>Relatórios</button>
+                <button class="botao-navegacao ativo"><i class="ph ph-user"></i>Aluno</button>
+                <button class="botao-navegacao"><i class="ph ph-currency-dollar"></i>Pagamentos</button>
+                <button class="botao-navegacao"><i class="ph ph-chart-bar"></i>Relatórios</button>
             </nav>
 
-            
         </aside>
 
-        <main class="main-content">
-                <header class="top-bar">
-                    <h1>Sistema Natação</h1>
-                    <span class="user-badge"><i class="ph ph-user-circle"></i>Administrador</span>
-                </header>
+        <main class="conteudo-principal">
+            <header class="barra-superior">
+                <h1>Sistema Natação</h1>
+                <span class="selo-usuario"><i class="ph ph-user-circle"></i>Administrador</span>
+            </header>
 
-
-                <section class="stats-grid">
-                <div class="stat-card">
+            <section class="grade-estatisticas">
+                <div class="cartao-estatistica">
                     <div>
                         <p>Total de Alunos</p>
                         <h3 id="stat-total">0</h3>
                     </div>
-                    <i class="ph ph-users-three icon-blue"></i>
+                    <i class="ph ph-users-three icone-azul"></i>
                 </div>
 
-                <div class="stat-card">
+                <div class="cartao-estatistica">
                     <div>
                         <p>Alunos Ativos</p>
                         <h3 id="stat-ativos">0</h3>
                     </div>
-                    <i class="ph ph-check-circle icon-green"></i>
+                    <i class="ph ph-check-circle icone-verde"></i>
                 </div>
 
-                <div class="stat-card">
+                <div class="cartao-estatistica">
                     <div>
                         <p>Inadimplentes</p>
                         <h3 id="stat-pendentes">0</h3>
-                         
-
                     </div>
-                    <i class="ph ph-warning-circle icon-red"></i>
-
+                    <i class="ph ph-warning-circle icone-vermelho"></i>
                 </div>
-
             </section>
-            <!--Área de cadastro e tabela-->
+
+            <!-- Área de cadastro e tabela -->
             <div class="grade-painel">
-                <!--Cartão do formulário-->
                 <section class="cartao cartao-formulario">
                     <h2><i class="ph ph-user-plus"></i>Cadastrar Aluno</h2>
 
-                    <form id="formulario-aluno">
+                    <form id="form-aluno">
                         <div class="grupo-formulario">
-                            <label for="nome">Nome Completo</label>
+                            <label for="nome">Nome</label>
                             <input type="text" id="nome" placeholder="Digite o nome" required>
-                            
                         </div>
-
-                        <div class="grupo-formulario">
-                            <label for="telefone">Telefone</label>
-                            <input type="text" id="telefone" placeholder="Digite o telefone" required>
-
-                        </div>
-
-                        <div class="grupo-formulario">
-                            <label for="data_nascimento">Data de Nascimento</label>
-                            <input type="text" id="data_nascimento" placeholder="Digite a data" required>
-
-
-                        </div>
-
-                        <button type="submit" class="botao-primario"><i class="ph ph-floppy-disk"></i>Salvar aluno</button>
                     </form>
-
                 </section>
-
             </div>
-            </main>
+        </main>
     </body>
 </html>
