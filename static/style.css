@@ -1,18 +1,18 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-body{
+body {
     display: flex;
-    background-color:#f4f6f9 ;
+    background-color: #f4f6f9;
     color: #333;
     min-height: 100vh;
 }
 
-.sidebar{
+.barra-lateral {
     width: 250px;
     display: flex;
     background-color: #1e293b;
@@ -22,7 +22,7 @@ body{
     gap: 32px;
 }
 
-.logo{
+.logo {
     display: flex;
     align-items: center;
     gap: 12px;
@@ -30,33 +30,32 @@ body{
     color: #0284c7;
 }
 
-.menu{
+.menu {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    
 }
 
-.nav-btn{
+.botao-navegacao {
     display: flex;
-    align-items:center;
+    align-items: center;
     color: white;
     background: none;
-    border:none;
+    border: none;
     padding: 8px 16px;
     gap: 8px;
     border-radius: 10px;
     font-size: 15px;
-
+    cursor: pointer;
 }
 
-.nav-btn:hover,
-.nav-btn.active{
+.botao-navegacao:hover,
+.botao-navegacao.ativo {
     color: white;
     background-color: #0284c7;
 }
 
-.main-content{
+.conteudo-principal {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -65,15 +64,15 @@ body{
     overflow-y: auto;
 }
 
-.top-bar{
+.barra-superior {
     display: flex;
-    justify-content:space-between;
+    justify-content: space-between;
     align-items: center;
 }
 
-.user-badge{
+.selo-usuario {
     display: flex;
-    align-items:center;
+    align-items: center;
     gap: 2px;
     background: white;
     padding: 5px;
@@ -81,17 +80,15 @@ body{
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     font-weight: 600;
     color: #0284c7;
-
-    
 }
 
-.stats-grid{
+.grade-estatisticas {
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 }
 
-.stat-card{
+.cartao-estatistica {
     display: flex;
     align-items: center;
     background: white;
@@ -101,22 +98,35 @@ body{
     border-radius: 10px;
 }
 
-.stat-card h3{
+.cartao-estatistica h3 {
     font-size: 25px;
 }
 
-.stat-card i{
+.cartao-estatistica i {
     font-size: 30px;
 }
 
-.icon-blue{
+.icone-azul {
     color: #0284c7;
 }
 
-.icon-green{
+.icone-verde {
     color: green;
 }
 
-.icon-red{
+.icone-vermelho {
     color: red;
+}
+
+.grade-painel {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 24px;
+}
+
+.cartao {
+    background: white;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
